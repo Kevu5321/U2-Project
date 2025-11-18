@@ -1,4 +1,5 @@
 public class Randomizer {
+    //Scrambles userWord
     public static String scrambleWord(String userWord) {
         String word = userWord;
         String scrambled = "";
@@ -7,7 +8,6 @@ public class Randomizer {
             int random = (int) (Math.random() * i);
 
             scrambled += word.charAt(random);
-
             word = word.substring(0, random) + word.substring(random + 1);
         }
         return scrambled;
@@ -15,5 +15,3 @@ public class Randomizer {
 
 
 }
-
-// THIS LINE IS TO CHECK IF THE USER GOT UPDATED IN GITHUB
