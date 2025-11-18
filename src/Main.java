@@ -7,11 +7,14 @@ public class Main {
         System.out.print("What word would you like the other person to guess?: ");
         String userWord = Scan.nextLine();
 
-//        System.out.println(Randomizer.scrambleWord(userWord));
+        System.out.println(Randomizer.scrambleWord(userWord));
 
-        for (int i = 0; i < 10; i++){
-            int num = (int) (Math.random() * 11);
-            System.out.println(num);
-        }
+//        System.out.print("Do you like how this word is scrambled? (Type y or n) ");
+//        String choice = Scan.nextLine();
+//
+//        if (choice = "n"){
+//
+//        }
+
     }
 }
