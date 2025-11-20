@@ -13,29 +13,31 @@ public class Randomizer {
         return scrambled;
     }
 
-    //Checks if user got the unscrambled word correct
+    //Checks if Player 2 got the unscrambled word correct
     public static Boolean checkGuess(String playerGuess, String userWord) {
         String lowerPlayerGuess = playerGuess.toLowerCase();
         String lowerUserWord = userWord.toLowerCase();
-        String s = "";
 
-//        int guessLength = playerGuess.length();
-//        int wordLength = userWord.length();
+        if (lowerUserWord.equals(lowerPlayerGuess)){
+            return true;
+        }
+        return false;
+    }
+
+    //Tells Player 2 how many letters are in the correct position (WIP)
+    public static int correctLetters (String playerGuess, String userWord) {
+        int guessLength = playerGuess.length();
+        int wordLength = userWord.length();
+        String s = "";
+        int correct = 0;
 
         for (int i = 0; i < userWord.length(); i++){
-            s += lowerUserWord.substring(0, i);
-            if (s.equals(lowerUserWord.substring(0, i)));
+//            s += lowerUserWord.substring(0, i);
+//            if (s.equals(lowerUserWord.substring(0, i)));
         }
-        //Temporary return statement
-        return lowerPlayerGuess;
+
+        return correct;
     }
+
+
 }
-
-//Temporary code in case needed is below
-
-//public static String guessesCount(String playerGuess, String userWord) {
-//    int guessLength = playerGuess.length();
-//    int wordLength = userWord.length();
-//
-//    for ()
-//}

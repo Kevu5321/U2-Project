@@ -5,7 +5,7 @@ public class Main {
         Scanner Scan = new Scanner(System.in);
         System.out.print("Hello Player 1! ");
 
-        //User input for the word (userInput) to be scrambled
+        //Player 1 input for the word (userWord) to be scrambled
         System.out.print("What word would you like Player 2 to guess?: ");
         String userWord = Scan.nextLine();
 
@@ -13,22 +13,22 @@ public class Main {
         String scrambledWord = Randomizer.scrambleWord(userWord);
         System.out.println(scrambledWord);
 
-        //Gives user the option to rescramble the word if original scramble was not wanted
+        //Gives Player 1 the option to rescramble the word if original scramble was not wanted
         String choice = "n";
         while (choice.equals("n") || choice.equals("N")){
             System.out.print("Do you like how this word is scrambled? (Type y or n): ");
             choice = Scan.nextLine();
 
-            System.out.println("");
+            System.out.println();
             if (choice.equals("n") || choice.equals("N")){
                 scrambledWord = Randomizer.scrambleWord(userWord);
                 System.out.println(scrambledWord);
             }
         }
 
-        //To create a gap so Player 2 won't see (or at least struggle to see) the original word.
+        //To create a gap so Player 2 won't see (or at least struggle to see) the original word
         for (int i = 0; i <= 10; i++) {
-            System.out.println("");
+            System.out.println();
         }
 
         System.out.println("Hello Player 2!");
@@ -38,20 +38,30 @@ public class Main {
         System.out.print("Please input your first guess as to what the word could be: ");
         String guess = Scan.nextLine();
 
-        Boolean guessCompared = Randomizer.checkGuess(guess, userWord);
+        //Checks if Player 2's guess matches the original word
+        boolean guessCompared = Randomizer.checkGuess(guess, userWord);
+        int lettersCorrect = Randomizer.correctLetters(guess, userWord);
         int attempts = 0;
 
-//        while (!guessCompared) {
-//            if (guessCompared) {
-//                attempts++;
-//                System.out.println("Player 2 guessed the word right in " + attempts + " attempts!");
-//            } else {
-//                attempts++;
-//                System.out.println("Try again!: ");
-//                guess = Scan.nextLine();
-//                guessCompared = Randomizer.checkGuess(guess, userWord);
-//            }
-//        }
+        //Tells Player 2 to try again unless they got the correct word
+        while (!guessCompared) {
+            //Here will go the correct letters amount
+            attempts++;
+            System.out.println("You got " + lettersCorrect + " letters right out of " + userWord.length());
+
+
+            System.out.print("Try again!: ");
+            guess = Scan.nextLine();
+            guessCompared = Randomizer.checkGuess(guess, userWord);
+        }
+        attempts++;
+
+        //Fixes the spelling of attempt if Player 2 guesses the word on their first attempt
+        if (attempts == 1) {
+            System.out.println("Player 2 guessed the word correctly in 1 attempt! Congratulations!");
+        } else {
+            System.out.println("Player 2 guessed the word correctly in " + attempts + " attempt(s)! Congratulations!");
+        }
 
 
     }
