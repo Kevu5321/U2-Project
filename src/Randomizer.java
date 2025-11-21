@@ -4,7 +4,7 @@ public class Randomizer {
         String word = userWord;
         String scrambled = "";
 
-        for (int i = userWord.length(); i > 0; i--){
+        for (int i = userWord.length(); i > 0; i--) {
             int random = (int) (Math.random() * i);
 
             scrambled += word.charAt(random);
@@ -18,7 +18,7 @@ public class Randomizer {
         String lowerPlayerGuess = playerGuess.toLowerCase();
         String lowerUserWord = userWord.toLowerCase();
 
-        if (lowerUserWord.equals(lowerPlayerGuess)){
+        if (lowerUserWord.equals(lowerPlayerGuess)) {
             return true;
         }
         return false;
@@ -26,18 +26,19 @@ public class Randomizer {
 
     //Tells Player 2 how many letters are in the correct position (WIP)
     public static int correctLetters (String playerGuess, String userWord) {
-        int guessLength = playerGuess.length();
-        int wordLength = userWord.length();
+        String lowerPlayerGuess = playerGuess.toLowerCase();
+        String lowerUserWord = userWord.toLowerCase();
         String s = "";
         int correct = 0;
 
-        for (int i = 0; i < userWord.length(); i++){
-//            s += lowerUserWord.substring(0, i);
-//            if (s.equals(lowerUserWord.substring(0, i)));
-        }
+        for (int i = 0; i < playerGuess.length() && i < userWord.length(); i++) {
+            s += lowerUserWord.substring(i, i+1);
 
+            if (s.equals(lowerPlayerGuess.substring(i, i+1))) {
+                correct++;
+            }
+            s = "";
+        }
         return correct;
     }
-
-
 }

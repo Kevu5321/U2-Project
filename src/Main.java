@@ -15,12 +15,12 @@ public class Main {
 
         //Gives Player 1 the option to rescramble the word if original scramble was not wanted
         String choice = "n";
-        while (choice.equals("n") || choice.equals("N")){
+        while (choice.equals("n") || choice.equals("N")) {
             System.out.print("Do you like how this word is scrambled? (Type y or n): ");
             choice = Scan.nextLine();
 
             System.out.println();
-            if (choice.equals("n") || choice.equals("N")){
+            if (choice.equals("n") || choice.equals("N")) {
                 scrambledWord = Randomizer.scrambleWord(userWord);
                 System.out.println(scrambledWord);
             }
@@ -34,21 +34,25 @@ public class Main {
         System.out.println("Hello Player 2!");
         System.out.println("The scrambled word Player 1 chose for you to guess is: " + scrambledWord + "!");
 
+
+        //Don't know if I will implement this yet
+        //System.out.println("If you ever want to forfeit just type \"forfeit\"!");
+
+
         //Player 2 guess
         System.out.print("Please input your first guess as to what the word could be: ");
         String guess = Scan.nextLine();
 
         //Checks if Player 2's guess matches the original word
         boolean guessCompared = Randomizer.checkGuess(guess, userWord);
-        int lettersCorrect = Randomizer.correctLetters(guess, userWord);
         int attempts = 0;
 
         //Tells Player 2 to try again unless they got the correct word
         while (!guessCompared) {
             //Here will go the correct letters amount
             attempts++;
-            System.out.println("You got " + lettersCorrect + " letters right out of " + userWord.length());
-
+            int lettersCorrect = Randomizer.correctLetters(guess, userWord);
+            System.out.println("You got " + lettersCorrect + " letter(s) right out of " + userWord.length() + "!");
 
             System.out.print("Try again!: ");
             guess = Scan.nextLine();
@@ -60,9 +64,7 @@ public class Main {
         if (attempts == 1) {
             System.out.println("Player 2 guessed the word correctly in 1 attempt! Congratulations!");
         } else {
-            System.out.println("Player 2 guessed the word correctly in " + attempts + " attempt(s)! Congratulations!");
+            System.out.println("Player 2 guessed the word correctly in " + attempts + " attempts! Congratulations!");
         }
-
-
     }
 }
