@@ -9,6 +9,22 @@ public class Main {
         System.out.print("What word would you like Player 2 to guess?: ");
         String userWord = Scan.nextLine();
 
+        //Might add code to make a maximum word limit and not allow spaces
+
+        //Gives Player 1 the option to change the word if they would like a different word
+        //without restarting the program
+        String change = "y";
+        while (change.equals("y") || change.equals("Y")) {
+            System.out.print("Would you like to change your word \"" + userWord + "\"? (Type y or n): ");
+            change = Scan.nextLine();
+
+            System.out.println();
+            if (change.equals("y") || change.equals("Y")) {
+                System.out.print("What would you like your new word to be?: ");
+                userWord = Scan.nextLine();
+            }
+        }
+
         //Scrambles userWord
         String scrambledWord = Randomizer.scrambleWord(userWord);
         System.out.println(scrambledWord);
@@ -33,10 +49,6 @@ public class Main {
 
         System.out.println("Hello Player 2!");
         System.out.println("The scrambled word Player 1 chose for you to guess is: " + scrambledWord + "!");
-
-
-        //Don't know if I will implement this yet
-        //System.out.println("If you ever want to forfeit just type \"forfeit\"!");
 
 
         //Player 2 guess
