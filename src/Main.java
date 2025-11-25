@@ -3,13 +3,27 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner Scan = new Scanner(System.in);
+
+        //Don't know yet if the code below will be added as a stylistic choice yet
+        //System.out.println("-------------------------------------------------------------------");
+
         System.out.print("Hello Player 1! ");
 
         //Player 1 input for the word (userWord) to be scrambled
-        System.out.print("What word would you like Player 2 to guess?: ");
+        System.out.println("What word would you like Player 2 to guess?");
+        System.out.print("Keep in mind that your word must be less than 10 letters and more than 3: ");
         String userWord = Scan.nextLine();
 
-        //Might add code to make a maximum word limit and not allow spaces
+
+
+//        //Makes sure that userWord is a minimum of 3 letters and a maximum of 10
+//        if (userWord.length() > 11) {
+//            System.out.println("Sorry that word is too long! Please give a shorter word: ");
+//            userWord = Scan.nextLine();
+//        } if (userWord.length() < 3) {
+//            System.out.println("Sorry that word is too short! Please give a longer word: ");
+//            userWord = Scan.nextLine();
+//        }
 
         //Gives Player 1 the option to change the word if they would like a different word
         //without restarting the program
@@ -47,9 +61,9 @@ public class Main {
             System.out.println();
         }
 
+
         System.out.println("Hello Player 2!");
         System.out.println("The scrambled word Player 1 chose for you to guess is: " + scrambledWord + "!");
-
 
         //Player 2 guess
         System.out.print("Please input your first guess as to what the word could be: ");
