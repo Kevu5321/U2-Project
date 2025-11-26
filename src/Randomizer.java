@@ -1,20 +1,4 @@
 public class Randomizer {
-    //Checks the length of userWord and returns false if the word is more than 10 characters long.
-    public static boolean wordLengthLong (String userWord){
-        if (userWord.length() > 11) {
-            return false;
-        }
-        return true;
-    }
-
-    //Checks the length of userWord and returns false if the word is less than 3 characters long.
-    public static boolean wordLengthShort (String userWord) {
-        if (userWord.length() < 3) {
-            return true;
-        }
-        return true;
-    }
-
     //Scrambles userWord
     public static String scrambleWord(String userWord) {
         String word = userWord;

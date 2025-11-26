@@ -3,27 +3,23 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner Scan = new Scanner(System.in);
-
-        //Don't know yet if the code below will be added as a stylistic choice yet
-        //System.out.println("-------------------------------------------------------------------");
-
         System.out.print("Hello Player 1! ");
 
         //Player 1 input for the word (userWord) to be scrambled
         System.out.println("What word would you like Player 2 to guess?");
-        System.out.print("Keep in mind that your word must be less than 10 letters and more than 3: ");
+        System.out.print("Keep in mind that your word must be less than 10 letters and more than 2: ");
         String userWord = Scan.nextLine();
 
-
-
-//        //Makes sure that userWord is a minimum of 3 letters and a maximum of 10
-//        if (userWord.length() > 11) {
-//            System.out.println("Sorry that word is too long! Please give a shorter word: ");
-//            userWord = Scan.nextLine();
-//        } if (userWord.length() < 3) {
-//            System.out.println("Sorry that word is too short! Please give a longer word: ");
-//            userWord = Scan.nextLine();
-//        }
+        //Ensures that Player 1's word fits within the character limit
+        while (userWord.length() < 3 || userWord.length() > 11) {
+            if (userWord.length() > 11) {
+                System.out.println("Sorry that word is too long! Please give a shorter word: ");
+                userWord = Scan.nextLine();
+            } if (userWord.length() < 3) {
+                System.out.println("Sorry that word is too short! Please give a longer word: ");
+                userWord = Scan.nextLine();
+            }
+        }
 
         //Gives Player 1 the option to change the word if they would like a different word
         //without restarting the program
@@ -36,6 +32,17 @@ public class Main {
             if (change.equals("y") || change.equals("Y")) {
                 System.out.print("What would you like your new word to be?: ");
                 userWord = Scan.nextLine();
+            }
+
+            //Ensures that Player 1's new word fits within the character limit
+            while (userWord.length() < 3 || userWord.length() > 11) {
+                if (userWord.length() > 11) {
+                    System.out.println("Sorry that word is too long! Please give a shorter word: ");
+                    userWord = Scan.nextLine();
+                } if (userWord.length() < 3) {
+                    System.out.println("Sorry that word is too short! Please give a longer word: ");
+                    userWord = Scan.nextLine();
+                }
             }
         }
 
