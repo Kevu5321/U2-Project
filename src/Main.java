@@ -82,7 +82,7 @@ public class Main {
 
         //Tells Player 2 to try again unless they got the correct word
         while (!guessCompared) {
-            //Here will go the correct letters amount
+            //Tells Player 2 how many letters they got correct in their guess
             attempts++;
             int lettersCorrect = Randomizer.correctLetters(guess, userWord);
             System.out.println("You got " + lettersCorrect + " letter(s) right out of " + userWord.length() + "!");
